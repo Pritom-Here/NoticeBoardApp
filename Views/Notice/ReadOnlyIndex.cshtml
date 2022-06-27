@@ -1,0 +1,45 @@
+﻿@using NoticeBoardApp.Models
+@model IEnumerable<Notice>
+
+@{
+    ViewData["Title"] = "Notice Board";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="d-flex justify-content-between mt-5">    
+    <h1 class="h4 fw-bold"> All Notice </h1>
+</div>
+
+<hr class="mt-1 mb-3" />
+
+<div class="row px-2">
+
+    @foreach (var notice in Model)
+    {        
+        <div class="card mt-4">            
+
+            <div class="card-body">
+                <h5 class="card-title fw-bold">
+                    @notice.Title
+                </h5>
+                
+                @if (!string.IsNullOrEmpty(notice.SubTitle))
+                {
+                    <h6 class="card-subtitle fst-italic mt-2">
+                        @notice.SubTitle
+                    </h6>                    
+                }
+
+                <p class="card-text mt-3">
+                    @notice.Details.Substring(0, 200)... 
+                    <a class="" asp-controller="Notice" asp-action="Details" asp-route-id="@notice.Id"> <i> See More </i></a>
+                </p>
+
+            </div>
+        </div>
+    }
+
+</div>
+
+

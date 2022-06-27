@@ -1,0 +1,50 @@
+﻿@using NoticeBoardApp.Models.ViewModels
+@model NoticeViewModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row mt-5">
+    <h1 class="h4 fw-bold">Notice</h1>
+</div>
+
+<hr class="mt-1 mb-4" />
+
+<div class="row">
+    
+            <div class="row">
+                <p class="">Posted By <i class="fw-bold">@Model.Creator.Email</i> on @Model.CreatedOn.ToString("dd MMM, yyyy")</p>
+            </div>
+            <div class="row">
+                <p class="">Last Modified By <i class="fw-bold">@Model.Modifier.Email</i> on @Model.ModifiedOn.ToString("dd MMM, yyyy")</p>
+            </div>
+
+            <div class="row mt-4">
+                <label class="fw-bold col-1">Title:</label>
+                <p class="col-11">@Model.Title</p>
+            </div>
+            <div class="row">
+                <label class="fw-bold col-1">Subtitle:</label>
+                @if(string.IsNullOrEmpty(Model.SubTitle))
+                {
+                    <p class="col-11">None</p>
+                }
+                else
+                {
+                    <p class="col-11">@Model.SubTitle</p>            
+                }
+
+            </div>
+            <div class="row">
+                <label class="fw-bold col-1">Details:</label>
+                <p class="col-11">@Model.Details</p>
+            </div>
+            
+            <div>                
+                <a class="btn btn-primary" asp-controller="Notice" asp-action="Edit" asp-route-id="@Model.Id">Edit This Notice</a>                
+            </div>
+        
+
+</div>

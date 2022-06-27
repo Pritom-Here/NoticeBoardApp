@@ -1,0 +1,27 @@
+﻿@using NoticeBoardApp.Models.ViewModels
+@model NoticeViewModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row mt-5">
+    
+        <div class="row text-center">
+            <h1 class="fw-bold">@Model.Title</h1>
+        </div>
+        
+        @if(!string.IsNullOrEmpty(Model.SubTitle))
+        {
+            <div class="row mt-3 text-center">
+                <h2 class="h4">@Model.SubTitle</h2>
+            </div>
+        }
+        
+        <div class="row mt-5 text-center">
+            <p class="">@Model.Details</p>
+        </div>            
+
+</div>

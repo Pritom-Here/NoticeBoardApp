@@ -1,5 +1,5 @@
 ﻿@using NoticeBoardApp.Models.ViewModels
-@model NoticeViewModel
+@model NoticeFormViewModel
 
 @{
     ViewData["Title"] = "Notice Form";
@@ -14,7 +14,7 @@
 <hr class="mt-1 mb-4" />
 
 <div class="row">
-    <div class="col-md-6 pl-0">
+    <div class="col-12 pl-0">
         <form method="post" asp-action="Save" asp-controller="Notice">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 

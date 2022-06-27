@@ -62,7 +62,7 @@ namespace NoticeBoardApp.Controllers
         [Authorize(Roles = RolesAndPolicies.Roles.Administrator)]
         public IActionResult Create()
         {
-            var model = new NoticeViewModel();
+            var model = new NoticeFormViewModel();
             return View("NoticeForm", model);
         }
 
@@ -76,7 +76,7 @@ namespace NoticeBoardApp.Controllers
             
             if (noticeInDb == null) return NotFound();
             
-            var model = new NoticeViewModel
+            var model = new NoticeFormViewModel
             {
                 Id = noticeInDb.Id,
                 Title = noticeInDb.Title,
@@ -92,7 +92,7 @@ namespace NoticeBoardApp.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = RolesAndPolicies.Roles.Administrator)]
-        public async Task<IActionResult> Save(NoticeViewModel model)
+        public async Task<IActionResult> Save(NoticeFormViewModel model)
         {
             if (ModelState.IsValid)
             {

@@ -31,10 +31,21 @@
                     </h6>                    
                 }
 
-                <p class="card-text mt-3">
-                    @notice.Details.Substring(0, 200)... 
-                    <a class="" asp-controller="Notice" asp-action="Details" asp-route-id="@notice.Id"> <i> See More </i></a>
-                </p>
+
+                @if(notice.Details.Length > 200)
+                {
+                    <p class="card-text mt-3"> 
+                        @notice.Details.Substring(0, 200)... 
+                        <a class="fst-italic" asp-controller="Notice" asp-action="Details" asp-route-id="@notice.Id"> See More </a>
+                    </p>
+                }
+                else
+                {
+                    <p class="card-text mt-3"> 
+                        @notice.Details.Substring(0, 100)... 
+                        <a class="fst-italic" asp-controller="Notice" asp-action="Details" asp-route-id="@notice.Id"> See More </a>
+                    </p>                        
+                }
 
             </div>
         </div>
